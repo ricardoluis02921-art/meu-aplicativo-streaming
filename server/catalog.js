@@ -690,18 +690,21 @@ export function homePayload() {
       id: 'continue',
       title: 'Continuar assistindo',
       subtitle: 'Retome de onde parou',
+      link: '/minha-lista',
       items: continueWatching.map(cardOf),
     },
     {
       id: 'trending',
       title: 'Em alta agora',
       subtitle: 'O que todo mundo está assistindo',
+      link: '/catalogo?ordenar=score',
       items: trending.map(cardOf),
     },
     {
       id: 'top10',
       title: 'Top 10 no Brasil hoje',
       subtitle: 'Ranking atualizado diariamente',
+      link: '/catalogo?ordenar=score',
       ranked: true,
       items: top10.map(cardOf),
     },
@@ -709,6 +712,7 @@ export function homePayload() {
       id: 'series',
       title: 'Séries ORION premiadas',
       subtitle: 'Histórias longas para maratonar',
+      link: '/series',
       items: titles
         .filter((title) => title.type === 'series')
         .sort((a, b) => b.score - a.score)
@@ -718,6 +722,7 @@ export function homePayload() {
       id: 'movies',
       title: 'Filmes para a sessão da noite',
       subtitle: 'Escolhidos pela curadoria ORION',
+      link: '/filmes',
       items: titles
         .filter((title) => title.type === 'movie')
         .sort((a, b) => b.score - a.score)
@@ -726,23 +731,27 @@ export function homePayload() {
     {
       id: 'scifi',
       title: 'Ficção científica e futuros possíveis',
+      link: '/catalogo?genero=Fic%C3%A7%C3%A3o%20cient%C3%ADfica',
       items: withGenre('Ficção científica').map(cardOf),
     },
     {
       id: 'new',
       title: 'Novidades da semana',
       subtitle: 'Chegou agora no catálogo',
+      link: '/catalogo?ordenar=year',
       items: newReleases.map(cardOf),
     },
     {
       id: 'suspense',
       title: 'Suspense e mistério',
       subtitle: 'Para quem gosta de descobrir junto',
+      link: '/catalogo?genero=Suspense',
       items: withGenre('Suspense').map(cardOf),
     },
     {
       id: 'family',
       title: 'Para assistir com a família',
+      link: '/catalogo?genero=Fam%C3%ADlia',
       items: titles
         .filter((title) => ['L', '10', '12'].includes(title.ageRating))
         .sort((a, b) => b.score - a.score)
