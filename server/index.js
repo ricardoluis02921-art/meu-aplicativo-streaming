@@ -69,14 +69,18 @@ app.use(
   }),
 )
 
-// SPA fallback (Express 5 exige nome no wildcard)
-app.get('/*splat', (req, res, next) => {
+// SPA fallback: entrega index.html para rotas do cliente (inclusive a raiz "/").
+app.use((req, res, next) => {
+  if (req.method !== 'GET' && req.method !== 'HEAD') {
+    next()
+    return
+  }
   if (req.path.startsWith('/api/')) {
     next()
     return
   }
   res.sendFile(path.join(distDir, 'index.html'), (error) => {
-    if (error) next()
+    if (error) next(error)
   })
 })
 
