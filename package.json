@@ -1,0 +1,30 @@
+{
+  "name": "orion-streaming",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ORION+ — estrutura principal de um app de streaming premium (filmes e séries) responsivo para celular, tablet, desktop e Smart TV.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "start": "node server/index.js",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.1.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
