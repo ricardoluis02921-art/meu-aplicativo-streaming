@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import Artwork from '../components/Artwork'
 import {
@@ -110,7 +110,7 @@ export default function Player() {
           value={time}
           aria-label="Progresso do vídeo"
           onChange={(event) => setTime(Number(event.target.value))}
-          style={{ ['--seek' as string]: `${progressPercent}%` }}
+          style={{ '--seek': `${progressPercent}%` } as CSSProperties}
         />
 
         <div className="player__bar">
